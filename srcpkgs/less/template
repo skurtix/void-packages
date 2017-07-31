@@ -1,7 +1,7 @@
 # Template file for 'less'
 pkgname=less
 version=494
-revision=1
+revision=2
 build_style=gnu-configure
 configure_args="--with-regex=pcre"
 makedepends="ncurses-devel pcre-devel"
@@ -11,3 +11,8 @@ license="GPL-3"
 homepage="http://www.greenwoodsoftware.com/less"
 distfiles="${homepage}/less-${version}.tar.gz"
 checksum=02a476dccd12e1b76e5d91259cba5dac1b8c8e5a730465c1c89c798b19741509
+
+post_install() {
+	rm -f /usr/bin/more
+	ln /usr/bin/less /usr/bin/more
+}
