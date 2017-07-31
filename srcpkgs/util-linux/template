@@ -26,7 +26,7 @@ alternatives="
 "
 
 pre_configure() {
-	NOCONFIGURE=1 ./autogen.sh --disable-more
+	NOCONFIGURE=1 ./autogen.sh
 }
 do_configure() {
 	./configure ${configure_args} \
@@ -38,7 +38,8 @@ do_configure() {
 		--enable-vipw --enable-newgrp --enable-chfn-chsh \
 		--with-systemdsystemunitdir=no \
 		--without-udev --without-python \
-		--enable-write --localstatedir=/run
+		--enable-write --localstatedir=/run \
+		--disable-more
 }
 do_build() {
 	make ${makejobs}
