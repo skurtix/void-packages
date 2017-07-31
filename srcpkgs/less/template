@@ -14,5 +14,5 @@ checksum=02a476dccd12e1b76e5d91259cba5dac1b8c8e5a730465c1c89c798b19741509
 
 post_install() {
 	rm -f /usr/bin/more
-	ln /usr/bin/less /usr/bin/more
+	ln -s ${DESTDIR}/usr/bin/less /usr/bin/more
 }
